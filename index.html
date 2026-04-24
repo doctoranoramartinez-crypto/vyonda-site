@@ -7,91 +7,455 @@
 <title>VYONDA Health & Wellness</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: radial-gradient(circle at center, #0b1d3a, #020814);
-    color: white;
+:root{
+  --azul:#061b3a;
+  --azul2:#020814;
+  --dorado:#d4b55a;
+  --blanco:#ffffff;
+  --gris:#dbe7f5;
+  --whatsapp:#25d366;
 }
 
-header {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+*{
+  box-sizing:border-box;
 }
 
-.hero {
-    text-align: center;
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,var(--azul),var(--azul2));
+  color:var(--blanco);
 }
 
-/* LOGO SUPERIOR */
-.logo-img {
-    width: 120px;
-    margin-bottom: 20px;
+/* BANNER SUPERIOR */
+.ads-top{
+  background:linear-gradient(90deg,#0b2a55,#061b3a);
+  padding:10px 0;
+  overflow:hidden;
+  border-bottom:1px solid rgba(212,181,90,.3);
 }
 
-/* LETRAS GRANDES */
-.letras-img {
-    width: 80%;
-    max-width: 800px;
-    display: block;
-    margin: 0 auto;
+.ads-container{
+  display:flex;
+  gap:40px;
+  animation:scrollAds 18s linear infinite;
+  white-space:nowrap;
 }
 
-/* LINEA DORADA */
-.gold-line {
-    width: 200px;
-    height: 2px;
-    margin: 20px auto;
-    background: linear-gradient(to right, transparent, gold, transparent);
+.ad-item{
+  color:var(--dorado);
+  font-weight:600;
+  font-size:.95rem;
 }
 
-/* TEXTO */
-h1 {
-    font-weight: 300;
-    letter-spacing: 2px;
+@keyframes scrollAds{
+  from{transform:translateX(100%)}
+  to{transform:translateX(-100%)}
 }
 
-p {
-    max-width: 600px;
-    margin: auto;
-    opacity: 0.8;
+/* HERO */
+header{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
+  background:
+    radial-gradient(circle at center, rgba(18,63,120,.9) 0%, rgba(6,27,58,.95) 45%, #020814 100%);
 }
 
-/* BOTON */
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    border-radius: 25px;
-    background: gold;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
+.hero{
+  max-width:980px;
+  margin:auto;
+  animation:fadeUp 1.1s ease both;
+}
+
+.logo-img{
+  width:120px;
+  max-width:35%;
+  display:block;
+  margin:0 auto 20px;
+  filter:drop-shadow(0 10px 25px rgba(212,181,90,.45));
+}
+
+.letras-img{
+  width:90%;
+  max-width:760px;
+  display:block;
+  margin:0 auto 18px;
+  filter:drop-shadow(0 8px 24px rgba(212,181,90,.35));
+}
+
+.gold-line{
+  width:170px;
+  height:3px;
+  background:linear-gradient(to right, transparent, var(--dorado), transparent);
+  margin:22px auto;
+}
+
+h1{
+  font-size:clamp(1.8rem,4vw,3.4rem);
+  margin:0 0 15px;
+  letter-spacing:1px;
+}
+
+p{
+  font-size:1.1rem;
+  color:var(--gris);
+  line-height:1.6;
+}
+
+.btns{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:15px 28px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  display:inline-block;
+  transition:.25s ease;
+}
+
+.btn-whatsapp{
+  background:var(--whatsapp);
+  color:#062412;
+  box-shadow:0 0 28px rgba(37,211,102,.45);
+}
+
+.btn-outline{
+  border:1px solid var(--dorado);
+  color:var(--dorado);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+/* SECCIONES */
+section{
+  padding:70px 20px;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+}
+
+.section-title{
+  text-align:center;
+  font-size:2.3rem;
+  margin-bottom:10px;
+}
+
+.section-subtitle{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 40px;
+}
+
+/* ANUNCIOS */
+.ads-section{
+  background:rgba(255,255,255,.03);
+}
+
+.ads-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.ad-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(212,181,90,.3);
+  padding:20px;
+  border-radius:18px;
+  backdrop-filter:blur(6px);
+  text-align:center;
+  transition:.3s;
+}
+
+.ad-card:hover{
+  transform:translateY(-5px);
+}
+
+/* PRODUCTOS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:22px;
+}
+
+.card{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(212,181,90,.25);
+  border-radius:24px;
+  padding:22px;
+  text-align:center;
+  backdrop-filter:blur(8px);
+  box-shadow:0 14px 35px rgba(0,0,0,.25);
+}
+
+.product-img{
+  min-height:180px;
+  border-radius:18px;
+  background:rgba(255,255,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+  color:var(--gris);
+  font-size:.9rem;
+}
+
+.product-img img{
+  max-width:100%;
+  max-height:180px;
+  border-radius:16px;
+}
+
+.tag{
+  color:var(--dorado);
+  font-size:.85rem;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+/* BLOQUE DE CONVERSIÓN */
+.conversion{
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(180deg,#020814,#061b3a);
+}
+
+.conversion h2{
+  font-size:2.2rem;
+}
+
+/* BLOQUE PREMIUM */
+.premium-ad{
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(180deg,#061b3a,#020814);
+}
+
+.premium-ad h2{
+  font-size:2.2rem;
+  margin-bottom:10px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9fb4d0;
+  font-size:.9rem;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media(max-width:640px){
+  .logo-img{
+    width:90px;
+  }
+
+  .letras-img{
+    width:96%;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- BANNER SUPERIOR DINÁMICO -->
+<section class="ads-top">
+  <div class="ads-container">
+    <div class="ad-item">🔥 Lanzamiento: OtoBalance disponible ahora</div>
+    <div class="ad-item">💎 Próximamente: OralBiotic Morning & Night</div>
+    <div class="ad-item">✨ VYONDA Health & Wellness · Ciencia, salud y bienestar</div>
+  </div>
+</section>
+
+<!-- HERO PRINCIPAL -->
 <header>
-    <div class="hero">
+  <div class="hero">
+    <img src="./logo-vyonda.png" class="logo-img" alt="Logo VYONDA">
+    <img src="./letras-vyonda.png" class="letras-img" alt="VYONDA">
 
-        <img src="logo-vyonda.png" class="logo-img">
+    <div class="gold-line"></div>
 
-        <img src="letras-vyonda.png" class="letras-img">
+    <h1>Ciencia, salud y bienestar funcional</h1>
 
-        <div class="gold-line"></div>
+    <p>
+      VYONDA Health & Wellness integra productos seleccionados para acompañar
+      un estilo de vida saludable, práctico y moderno.
+    </p>
 
-        <h1>Ciencia · Salud · Bienestar</h1>
+    <div class="btns">
+      <a class="btn btn-whatsapp"
+      href="https://wa.me/528445072442?text=Hola%20quiero%20información%20sobre%20productos%20VYONDA"
+      target="_blank">
+        Comprar por WhatsApp
+      </a>
 
-        <p>Productos funcionales diseñados para transformar tu vida desde el interior.</p>
+      <a class="btn btn-outline" href="#productos">
+        Ver productos
+      </a>
+    </div>
+  </div>
+</header>
 
-        <a href="#" class="btn">Ver productos</a>
+<!-- ANUNCIOS -->
+<section class="ads-section">
+  <div class="container">
+    <h2 class="section-title">Actualizaciones VYONDA</h2>
+    <p class="section-subtitle">
+      Espacio para campañas, lanzamientos, promociones y anuncios oficiales.
+    </p>
+
+    <div class="ads-grid">
+      <div class="ad-card">
+        <h3>🔥 Producto estrella</h3>
+        <p>OtoBalance ya disponible en puntos seleccionados.</p>
+      </div>
+
+      <div class="ad-card">
+        <h3>💎 Nueva línea</h3>
+        <p>OralBiotic en fase final de lanzamiento.</p>
+      </div>
+
+      <div class="ad-card">
+        <h3>🚀 Próximamente</h3>
+        <p>Línea femenina Luna Flow y nuevas soluciones VYONDA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+  <div class="container">
+    <h2 class="section-title">Productos VYONDA</h2>
+    <p class="section-subtitle">
+      Catálogo inicial. Aquí iremos integrando imágenes reales, mockups y anuncios oficiales.
+    </p>
+
+    <div class="cards">
+
+      <!-- OTOBALANCE -->
+      <div class="card">
+        <div class="product-img">
+          <img src="./productos/otobalance.png" alt="OtoBalance">
+        </div>
+
+        <span class="tag">Producto destacado</span>
+        <h3>OtoBalance</h3>
+        <p>
+          Aceite mineral con vitamina E. Presentación 10 ml.
+          Producto para muestra y venta conforme disponibilidad.
+        </p>
+
+        <a class="btn btn-whatsapp"
+        href="https://wa.me/528445072442?text=Hola%20quiero%20comprar%20OtoBalance"
+        target="_blank">
+          Comprar OtoBalance
+        </a>
+      </div>
+
+      <!-- ORALBIOTIC -->
+      <div class="card">
+        <div class="product-img">
+          <img src="./productos/oralbiotic.png" alt="OralBiotic">
+        </div>
+
+        <span class="tag">Línea oral</span>
+        <h3>OralBiotic</h3>
+        <p>
+          Producto de la línea oral VYONDA.
+          Próximamente presentación Morning + Night.
+        </p>
+
+        <a class="btn btn-whatsapp"
+        href="https://wa.me/528445072442?text=Hola%20quiero%20información%20sobre%20OralBiotic"
+        target="_blank">
+          Consultar OralBiotic
+        </a>
+      </div>
+
+      <!-- LUNA FLOW -->
+      <div class="card">
+        <div class="product-img">
+          <img src="./productos/luna-flow.png" alt="Luna Flow">
+        </div>
+
+        <span class="tag">Línea femenina</span>
+        <h3>Luna Flow</h3>
+        <p>
+          Línea femenina VYONDA.
+          Próximamente información comercial y disponibilidad.
+        </p>
+
+        <a class="btn btn-whatsapp"
+        href="https://wa.me/528445072442?text=Hola%20quiero%20información%20sobre%20Luna%20Flow"
+        target="_blank">
+          Consultar Luna Flow
+        </a>
+      </div>
 
     </div>
-</header>
+  </div>
+</section>
+
+<!-- BLOQUE DE VENTA -->
+<section class="conversion">
+  <div class="container">
+    <h2>Atención personalizada VYONDA</h2>
+    <p>
+      Recibe información directa sobre disponibilidad, precios, lanzamientos y compra de productos.
+    </p>
+
+    <a class="btn btn-whatsapp"
+    href="https://wa.me/528445072442?text=Hola%20quiero%20asesoría%20de%20productos%20VYONDA"
+    target="_blank">
+      Hablar con ventas
+    </a>
+  </div>
+</section>
+
+<!-- BLOQUE PREMIUM -->
+<section class="premium-ad">
+  <div class="container">
+    <h2>Accede a productos VYONDA</h2>
+    <p>
+      Compra directa, disponibilidad limitada y nuevos lanzamientos próximamente.
+    </p>
+
+    <a class="btn btn-whatsapp"
+    href="https://wa.me/528445072442?text=Hola%20quiero%20comprar%20productos%20VYONDA"
+    target="_blank">
+      Comprar ahora
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2026 VYONDA Health & Wellness · Ciencia · Salud · Bienestar
+</footer>
 
 </body>
 </html>
