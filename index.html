@@ -288,6 +288,132 @@ footer{
     width:96%;
   }
 }
+/* FONDO ULTRA PREMIUM ANIMADO */
+body{
+  background:
+    radial-gradient(circle at 50% 25%, rgba(0,180,255,.28), transparent 38%),
+    radial-gradient(circle at 80% 15%, rgba(212,181,90,.18), transparent 35%),
+    linear-gradient(135deg,#020617,#061b3a,#020814);
+  background-size: 140% 140%;
+  animation: luxuryBackground 12s ease-in-out infinite;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(212,181,90,.10), transparent 25%),
+    radial-gradient(circle at 75% 60%, rgba(0,180,255,.10), transparent 30%);
+  animation: glowMove 10s ease-in-out infinite alternate;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+  opacity:.35;
+}
+
+header{
+  position:relative;
+  overflow:hidden;
+}
+
+header::before{
+  content:"";
+  position:absolute;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(212,181,90,.22), transparent 65%);
+  top:8%;
+  left:50%;
+  transform:translateX(-50%);
+  filter:blur(25px);
+  animation:pulseGold 4.5s ease-in-out infinite;
+}
+
+header::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(212,181,90,.08),
+    transparent,
+    rgba(0,180,255,.08),
+    transparent
+  );
+  animation:rotateAura 22s linear infinite;
+  pointer-events:none;
+}
+
+.hero{
+  position:relative;
+  z-index:2;
+}
+
+.logo-img,
+.letras-img{
+  animation:softFloat 5s ease-in-out infinite;
+}
+
+.btn-whatsapp{
+  animation:whatsappPulse 2.8s ease-in-out infinite;
+}
+
+.card,
+.ad-card{
+  transition:.35s ease;
+}
+
+.card:hover,
+.ad-card:hover{
+  transform:translateY(-8px) scale(1.015);
+  box-shadow:0 0 35px rgba(212,181,90,.22);
+}
+
+@keyframes luxuryBackground{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+
+@keyframes glowMove{
+  from{transform:translate3d(-2%, -2%, 0) scale(1)}
+  to{transform:translate3d(2%, 2%, 0) scale(1.08)}
+}
+
+@keyframes pulseGold{
+  0%,100%{opacity:.45; transform:translateX(-50%) scale(.92)}
+  50%{opacity:.9; transform:translateX(-50%) scale(1.08)}
+}
+
+@keyframes rotateAura{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+@keyframes softFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+@keyframes whatsappPulse{
+  0%,100%{box-shadow:0 0 22px rgba(37,211,102,.45)}
+  50%{box-shadow:0 0 42px rgba(37,211,102,.8)}
+}
 </style>
 </head>
 
