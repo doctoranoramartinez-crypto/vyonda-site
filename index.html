@@ -19,7 +19,30 @@
 *{
   box-sizing:border-box;
 }
+<div class="mouse-particles" id="mouseParticles"></div>
 
+<script>
+const particlesBox = document.getElementById("mouseParticles");
+
+document.addEventListener("mousemove", function(e) {
+  const particle = document.createElement("span");
+
+  particle.style.left = e.clientX + "px";
+  particle.style.top = e.clientY + "px";
+
+  const size = Math.random() * 6 + 3;
+  particle.style.width = size + "px";
+  particle.style.height = size + "px";
+
+  particle.style.animationDuration = (Math.random() * 0.8 + 0.8) + "s";
+
+  particlesBox.appendChild(particle);
+
+  setTimeout(() => {
+    particle.remove();
+  }, 1400);
+});
+</script>
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
@@ -759,8 +782,33 @@ header {
       </a>
     </div>
   </div>
-</header>
 
+</header>
+<div class="mouse-particles" id="mouseParticles"></div>
+
+<script>
+const particlesBox = document.getElementById("mouseParticles");
+
+document.addEventListener("mousemove", function(e) {
+  const particle = document.createElement("span");
+
+  particle.style.left = e.clientX + "px";
+  particle.style.top = e.clientY + "px";
+
+  const size = Math.random() * 6 + 3;
+  particle.style.width = size + "px";
+  particle.style.height = size + "px";
+
+  particle.style.animationDuration = (Math.random() * 0.8 + 0.8) + "s";
+
+  particlesBox.appendChild(particle);
+
+  setTimeout(() => {
+    particle.remove();
+  }, 1400);
+});
+</script>
+  
 <!-- ANUNCIOS -->
 <section class="ads-section">
   <div class="container">
