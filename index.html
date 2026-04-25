@@ -471,6 +471,115 @@ body::after {
     transform: translate(2%,2%) scale(1.05);
   }
 } 
+  /* LÍNEAS DORADAS ANIMADAS + PARTÍCULAS DE LUJO */
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, transparent 0%, transparent 42%, rgba(212,181,90,.75) 48%, transparent 54%, transparent 100%),
+    linear-gradient(300deg, transparent 0%, transparent 45%, rgba(0,180,255,.35) 50%, transparent 56%, transparent 100%);
+  background-size: 220% 220%;
+  animation: goldLinesMove 9s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .45;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(212,181,90,.9) 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(255,255,255,.45) 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(0,180,255,.55) 1px, transparent 1.8px);
+  background-size: 90px 90px, 130px 130px, 170px 170px;
+  background-position: 0 0, 40px 60px, 80px 20px;
+  animation: luxuryParticles 18s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+  opacity: .35;
+}
+
+.hero {
+  position: relative;
+  z-index: 3;
+}
+
+.gold-line {
+  box-shadow: 0 0 18px rgba(212,181,90,.9);
+  animation: goldPulse 3s ease-in-out infinite;
+}
+
+.card,
+.ad-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before,
+.ad-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(212,181,90,.45),
+    transparent
+  );
+  transform: translateX(-120%);
+  animation: cardGoldSweep 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes goldLinesMove {
+  0% {
+    background-position: -120% 50%, 120% 50%;
+  }
+  50% {
+    background-position: 120% 50%, -120% 50%;
+  }
+  100% {
+    background-position: -120% 50%, 120% 50%;
+  }
+}
+
+@keyframes luxuryParticles {
+  from {
+    background-position: 0 0, 40px 60px, 80px 20px;
+  }
+  to {
+    background-position: 300px -300px, -260px 240px, 220px -180px;
+  }
+}
+
+@keyframes goldPulse {
+  0%, 100% {
+    opacity: .7;
+    transform: scaleX(.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.15);
+  }
+}
+
+@keyframes cardGoldSweep {
+  0%, 70% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  80% {
+    opacity: .7;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
 </style>
 </head>
 
