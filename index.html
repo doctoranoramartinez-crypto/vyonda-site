@@ -580,6 +580,64 @@ header::after {
     opacity: 0;
   }
 }
+
+  /* EFECTO ULTRA PREMIUM: LOGO CON FONDO TRASLÚCIDO */
+
+header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* CAPA TIPO VIDRIO DETRÁS DEL LOGO Y TEXTO */
+.hero {
+  position: relative;
+  z-index: 3;
+
+  /* efecto vidrio */
+  background: rgba(2, 10, 24, 0.25); /* MUY traslúcido */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border-radius: 20px;
+  padding: 40px 30px;
+
+  /* borde sutil dorado premium */
+  border: 1px solid rgba(212, 181, 90, 0.25);
+
+  /* sombra elegante */
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, 0.6),
+    inset 0 0 30px rgba(212, 181, 90, 0.08);
+}
+
+/* REDUCE EL BLOQUE VISUAL DEL LOGO */
+.logo-img {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.letras-img {
+  max-width: 600px;
+  width: 75%;
+  margin-bottom: 10px;
+}
+
+/* TEXTO MÁS LIMPIO PARA QUE NO TAPE EL FONDO */
+.hero h1 {
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+.hero p {
+  opacity: 0.9;
+}
+
+/* OPCIONAL: más transparencia en escritorio */
+@media (min-width: 900px) {
+  .hero {
+    background: rgba(2, 10, 24, 0.18); /* aún más transparente */
+    backdrop-filter: blur(4px);
+  }
+}
 </style>
 </head>
 
