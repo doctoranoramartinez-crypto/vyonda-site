@@ -852,6 +852,36 @@ header {
     padding: 26px 18px;
   }
 }
+    /* ===== FIX GLOBAL PARA MENÚ FIJO ===== */
+
+/* 1. Ajusta altura real del menú */
+.navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  height: 90px; /* AJUSTA si tu menú es más alto */
+}
+
+/* 2. Empuja TODO el contenido hacia abajo */
+body{
+  padding-top: 90px !important;
+}
+
+/* 3. Ajuste específico para ANUNCIOS */
+.ads-section{
+  margin-top: 40px !important;
+}
+
+/* 4. Ajuste para el HERO (tu banner principal) */
+header{
+  margin-top: 20px;
+}
+
+/* 5. Evita que se tape al hacer scroll */
+section{
+  scroll-margin-top: 110px;
+}
 </style>
 </head>
 
