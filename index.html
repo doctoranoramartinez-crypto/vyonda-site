@@ -17,13 +17,9 @@
   --nav-height:90px;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -107,13 +103,8 @@ body::before{
   transition:.3s;
 }
 
-.nav-links a:hover{
-  color:#ffd700;
-}
-
-.nav-links a:hover::after{
-  width:100%;
-}
+.nav-links a:hover{color:#ffd700}
+.nav-links a:hover::after{width:100%}
 
 .ads-top{
   background:linear-gradient(90deg,#0b2a55,#061b3a);
@@ -222,6 +213,8 @@ p{
   font-weight:700;
   display:inline-block;
   transition:.25s ease;
+  border:none;
+  cursor:pointer;
 }
 
 .btn-whatsapp{
@@ -245,11 +238,10 @@ p{
 .btn-outline{
   border:1px solid var(--dorado);
   color:var(--dorado);
+  background:transparent;
 }
 
-.btn:hover{
-  transform:translateY(-3px);
-}
+.btn:hover{transform:translateY(-3px)}
 
 section{
   padding:70px 20px;
@@ -281,7 +273,9 @@ section{
   z-index:5;
 }
 
-.ads-section .container{
+.ads-section .container,
+.about-box,
+.checkout-box{
   background:rgba(2,10,24,.42);
   border:1px solid rgba(212,181,90,.22);
   border-radius:22px;
@@ -289,53 +283,29 @@ section{
   box-shadow:0 0 30px rgba(0,0,0,.4);
 }
 
-.ads-section .section-title,
-.ads-section .section-subtitle,
-.ads-section h3,
-.ads-section p{
-  text-shadow:0 3px 12px rgba(0,0,0,.85);
-}
-
-.ads-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-}
-
-.ad-card{
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(212,181,90,.3);
-  padding:20px;
-  border-radius:18px;
-  backdrop-filter:blur(6px);
-  -webkit-backdrop-filter:blur(6px);
-  text-align:center;
-  transition:.3s;
-}
-
-.ad-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 28px rgba(212,181,90,.18);
-}
-
-.cards{
+.ads-grid,
+.cards,
+.benefits-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:22px;
 }
 
-.card{
-  background:rgba(255,255,255,.08);
+.ad-card,
+.card,
+.benefit-card{
+  background:rgba(255,255,255,.06);
   border:1px solid rgba(212,181,90,.25);
-  border-radius:24px;
+  border-radius:22px;
   padding:22px;
   text-align:center;
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
   box-shadow:0 14px 35px rgba(0,0,0,.25);
   transition:.3s;
 }
 
+.ad-card:hover,
 .card:hover{
   transform:translateY(-5px);
   box-shadow:0 0 28px rgba(212,181,90,.18);
@@ -349,8 +319,6 @@ section{
   align-items:center;
   justify-content:center;
   margin-bottom:18px;
-  color:var(--gris);
-  font-size:.9rem;
 }
 
 .product-img img{
@@ -366,60 +334,53 @@ section{
   text-transform:uppercase;
 }
 
-.benefits-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:22px;
+.precio{
+  font-size:1.35rem;
+  color:var(--dorado);
+  font-weight:bold;
+  margin:12px 0 18px;
 }
 
-.benefit-card{
-  background:rgba(255,255,255,.06);
-  border:1px solid rgba(212,181,90,.22);
-  border-radius:22px;
-  padding:24px;
-  text-align:center;
-}
-
-.about-box{
-  background:rgba(2,10,24,.42);
-  border:1px solid rgba(212,181,90,.22);
-  border-radius:22px;
-  padding:35px 28px;
-  text-align:center;
-}
-
-.conversion{
+.conversion,
+.premium-ad{
   text-align:center;
   padding:80px 20px;
   background:linear-gradient(180deg,#020814,#061b3a);
 }
 
-.conversion h2{
-  font-size:2.2rem;
-}
-
-.premium-ad{
-  text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(180deg,#061b3a,#020814);
-}
-
-.premium-ad h2{
-  font-size:2.2rem;
-  margin-bottom:10px;
-}
-
 .checkout-box{
-  max-width:620px;
+  max-width:680px;
   margin:30px auto 0;
   display:flex;
   flex-direction:column;
   gap:16px;
-  background:rgba(255,255,255,.06);
-  padding:30px;
-  border-radius:24px;
-  border:1px solid rgba(212,181,90,.25);
-  box-shadow:0 0 35px rgba(0,0,0,.4);
+}
+
+.carrito-item{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(212,181,90,.18);
+  border-radius:14px;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.carrito-item button{
+  border:none;
+  border-radius:8px;
+  padding:7px 10px;
+  cursor:pointer;
+  background:#d4b55a;
+  color:#061b3a;
+  font-weight:bold;
+}
+
+.total-carrito{
+  font-size:1.5rem;
+  color:var(--dorado);
+  font-weight:bold;
 }
 
 footer{
@@ -430,28 +391,12 @@ footer{
 }
 
 @keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  from{opacity:0; transform:translateY(30px)}
+  to{opacity:1; transform:translateY(0)}
 }
 
 @media(max-width:768px){
-  :root{
-    --nav-height:75px;
-  }
-
-  body{
-    padding-top:var(--nav-height);
-  }
-
-  .navbar{
-    min-height:var(--nav-height);
-  }
+  :root{--nav-height:75px}
 
   .nav-container{
     min-height:var(--nav-height);
@@ -461,9 +406,7 @@ footer{
     gap:8px;
   }
 
-  .logo-nav{
-    font-size:15px;
-  }
+  .logo-nav{font-size:15px}
 
   .nav-links{
     gap:12px;
@@ -471,13 +414,9 @@ footer{
     justify-content:center;
   }
 
-  .nav-links a{
-    font-size:.78rem;
-  }
+  .nav-links a{font-size:.78rem}
 
-  .ads-container{
-    animation:scrollAds 30s linear infinite;
-  }
+  .ads-container{animation:scrollAds 30s linear infinite}
 
   header{
     min-height:auto;
@@ -495,33 +434,19 @@ footer{
     max-width:50%;
   }
 
-  .letras-img{
-    width:96%;
-  }
+  .letras-img{width:96%}
 
-  h1{
-    font-size:1.75rem;
-  }
+  h1{font-size:1.75rem}
+  p{font-size:1rem}
 
-  p{
-    font-size:1rem;
-  }
-
-  .ads-section{
-    margin-top:25px;
-    padding-top:25px;
-  }
-
-  .ads-section .container{
-    padding:26px 18px;
-  }
-
-  .section-title{
-    font-size:1.8rem;
-  }
+  .section-title{font-size:1.8rem}
 
   .checkout-box{
     padding:24px 18px;
+  }
+
+  .carrito-item{
+    flex-direction:column;
   }
 }
 </style>
@@ -532,10 +457,10 @@ footer{
 <nav class="navbar">
   <div class="nav-container">
     <div class="logo-nav">VYONDA</div>
-
     <ul class="nav-links">
       <li><a href="#inicio">Inicio</a></li>
       <li><a href="#productos">Productos</a></li>
+      <li><a href="#carrito">Carrito</a></li>
       <li><a href="#beneficios">Beneficios</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#contacto">Contacto</a></li>
@@ -545,9 +470,9 @@ footer{
 
 <section class="ads-top">
   <div class="ads-container">
-    <div class="ad-item">🔥 Lanzamiento: OtoBalance disponible ahora</div>
+    <div class="ad-item">🔥 OtoBalance $299 MXN</div>
+    <div class="ad-item">💎 OralBiotic $289 MXN</div>
     <div class="ad-item">💳 Compra segura con Mercado Pago</div>
-    <div class="ad-item">✨ VYONDA Health & Wellness · Ciencia, salud y bienestar</div>
   </div>
 </section>
 
@@ -559,22 +484,11 @@ footer{
     <div class="gold-line"></div>
 
     <h1>Ciencia, salud y bienestar funcional</h1>
-
-    <p>
-      VYONDA Health & Wellness integra productos seleccionados para acompañar
-      un estilo de vida saludable, práctico y moderno.
-    </p>
+    <p>VYONDA Health & Wellness integra productos seleccionados para acompañar un estilo de vida saludable, práctico y moderno.</p>
 
     <div class="btns">
-      <a class="btn btn-buy"
-      href="https://link.mercadopago.com.mx/vyondahealth"
-      target="_blank">
-        Comprar ahora
-      </a>
-
-      <a class="btn btn-outline" href="#productos">
-        Ver productos
-      </a>
+      <a class="btn btn-buy" href="#carrito">Ir al carrito</a>
+      <a class="btn btn-outline" href="#productos">Ver productos</a>
     </div>
   </div>
 </header>
@@ -582,24 +496,20 @@ footer{
 <section class="ads-section">
   <div class="container">
     <h2 class="section-title">Actualizaciones VYONDA</h2>
-    <p class="section-subtitle">
-      Espacio para campañas, lanzamientos, promociones y anuncios oficiales.
-    </p>
+    <p class="section-subtitle">Espacio para campañas, lanzamientos, promociones y anuncios oficiales.</p>
 
     <div class="ads-grid">
       <div class="ad-card">
         <h3>🔥 Producto estrella</h3>
-        <p>OtoBalance ya disponible en puntos seleccionados.</p>
+        <p>OtoBalance disponible por $299 MXN.</p>
       </div>
-
       <div class="ad-card">
-        <h3>💎 Compra directa</h3>
-        <p>Paga de forma segura mediante Mercado Pago.</p>
+        <h3>💎 Línea oral</h3>
+        <p>OralBiotic disponible por $289 MXN.</p>
       </div>
-
       <div class="ad-card">
-        <h3>🚀 Próximamente</h3>
-        <p>Línea femenina Luna Flow y nuevas soluciones VYONDA.</p>
+        <h3>💳 Compra directa</h3>
+        <p>Agrega productos al carrito y paga mediante Mercado Pago.</p>
       </div>
     </div>
   </div>
@@ -608,9 +518,7 @@ footer{
 <section id="productos">
   <div class="container">
     <h2 class="section-title">Productos VYONDA</h2>
-    <p class="section-subtitle">
-      Catálogo inicial. Aquí iremos integrando imágenes reales, mockups y anuncios oficiales.
-    </p>
+    <p class="section-subtitle">Selecciona productos y agrégalos a tu carrito.</p>
 
     <div class="cards">
 
@@ -618,77 +526,47 @@ footer{
         <div class="product-img">
           <img src="./otobalance.png" alt="OtoBalance">
         </div>
-
         <span class="tag">Producto destacado</span>
         <h3>OtoBalance</h3>
-        <p>
-          Aceite mineral con vitamina E. Presentación 10 ml.
-          Producto para muestra y venta conforme disponibilidad.
-        </p>
-
-        <a class="btn btn-buy"
-        href="https://link.mercadopago.com.mx/vyondahealth"
-        target="_blank">
-          Comprar ahora
-        </a>
-
-        <a class="btn btn-outline"
-        href="https://wa.me/528445072442?text=Hola%20ya%20pagué%20OtoBalance%20y%20quiero%20confirmar%20mi%20pedido"
-        target="_blank">
-          Confirmar pedido
-        </a>
+        <p>Aceite mineral con vitamina E. Presentación 10 ml.</p>
+        <div class="precio">$299 MXN</div>
+        <button class="btn btn-buy" onclick="agregarCarrito('OtoBalance',299)">Agregar al carrito</button>
       </div>
 
       <div class="card">
         <div class="product-img">
           <img src="./oralbiotic.png" alt="OralBiotic">
         </div>
-
         <span class="tag">Línea oral</span>
         <h3>OralBiotic</h3>
-        <p>
-          Producto de la línea oral VYONDA.
-          Próximamente presentación Morning + Night.
-        </p>
-
-        <a class="btn btn-buy"
-        href="https://link.mercadopago.com.mx/vyondahealth"
-        target="_blank">
-          Comprar ahora
-        </a>
-
-        <a class="btn btn-outline"
-        href="https://wa.me/528445072442?text=Hola%20ya%20pagué%20OralBiotic%20y%20quiero%20confirmar%20mi%20pedido"
-        target="_blank">
-          Confirmar pedido
-        </a>
+        <p>Producto de la línea oral VYONDA. Presentación comercial inicial.</p>
+        <div class="precio">$289 MXN</div>
+        <button class="btn btn-buy" onclick="agregarCarrito('OralBiotic',289)">Agregar al carrito</button>
       </div>
 
-      <div class="card">
-        <div class="product-img">
-          <img src="./luna-flow.png" alt="Luna Flow">
-        </div>
+    </div>
+  </div>
+</section>
 
-        <span class="tag">Línea femenina</span>
-        <h3>Luna Flow</h3>
-        <p>
-          Línea femenina VYONDA.
-          Próximamente información comercial y disponibilidad.
-        </p>
+<section id="carrito" class="conversion">
+  <div class="container">
+    <h2>Carrito de compras</h2>
+    <p>Revisa tu pedido antes de pagar.</p>
 
-        <a class="btn btn-buy"
-        href="https://link.mercadopago.com.mx/vyondahealth"
-        target="_blank">
-          Comprar ahora
-        </a>
-
-        <a class="btn btn-outline"
-        href="https://wa.me/528445072442?text=Hola%20ya%20pagué%20Luna%20Flow%20y%20quiero%20confirmar%20mi%20pedido"
-        target="_blank">
-          Confirmar pedido
-        </a>
+    <div class="checkout-box">
+      <div id="listaCarrito">
+        <p>Tu carrito está vacío.</p>
       </div>
 
+      <div id="totalCarrito" class="total-carrito">Total: $0 MXN</div>
+
+      <a class="btn btn-buy" href="https://link.mercadopago.com.mx/vyondahealth" target="_blank">
+        Pagar con Mercado Pago
+      </a>
+
+      <a class="btn btn-whatsapp" id="confirmarPedido" href="https://wa.me/528445072442" target="_blank">
+        Confirmar pedido
+      </a>
     </div>
   </div>
 </section>
@@ -696,24 +574,20 @@ footer{
 <section id="beneficios">
   <div class="container">
     <h2 class="section-title">Beneficios VYONDA</h2>
-    <p class="section-subtitle">
-      Productos funcionales seleccionados para acompañar rutinas de bienestar con una imagen premium y práctica.
-    </p>
+    <p class="section-subtitle">Productos funcionales seleccionados para acompañar rutinas de bienestar con una imagen premium y práctica.</p>
 
     <div class="benefits-grid">
       <div class="benefit-card">
         <h3>💎 Diseño premium</h3>
         <p>Imagen elegante, moderna y confiable para venta directa.</p>
       </div>
-
       <div class="benefit-card">
         <h3>🧬 Enfoque funcional</h3>
         <p>Productos pensados para apoyar hábitos diarios de salud y bienestar.</p>
       </div>
-
       <div class="benefit-card">
         <h3>📦 Venta práctica</h3>
-        <p>Compra con Mercado Pago y confirma tu pedido por WhatsApp.</p>
+        <p>Carrito de compras, pago por Mercado Pago y confirmación por WhatsApp.</p>
       </div>
     </div>
   </div>
@@ -723,37 +597,7 @@ footer{
   <div class="container">
     <div class="about-box">
       <h2 class="section-title">Nosotros</h2>
-      <p>
-        VYONDA Health & Wellness es una marca enfocada en productos funcionales,
-        bienestar moderno y soluciones prácticas para la vida diaria.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="pedido" class="conversion">
-  <div class="container">
-    <h2>Confirma tu pedido</h2>
-    <p>
-      Después de realizar tu pago, envíanos tu comprobante y datos para envío.
-    </p>
-
-    <div class="checkout-box">
-      <p><strong>1.</strong> Realiza tu pago en Mercado Pago.</p>
-      <p><strong>2.</strong> Guarda tu comprobante.</p>
-      <p><strong>3.</strong> Envía por WhatsApp: nombre, producto, cantidad, dirección y comprobante.</p>
-
-      <a class="btn btn-buy"
-      href="https://link.mercadopago.com.mx/vyondahealth"
-      target="_blank">
-        Pagar ahora
-      </a>
-
-      <a class="btn btn-whatsapp"
-      href="https://wa.me/528445072442?text=Hola%20VYONDA,%20ya%20realicé%20mi%20pago.%20Quiero%20confirmar%20mi%20pedido.%0A%0ANombre:%0AProducto:%0ACantidad:%0ADirección:%0AComprobante:"
-      target="_blank">
-        Enviar comprobante
-      </a>
+      <p>VYONDA Health & Wellness es una marca enfocada en productos funcionales, bienestar moderno y soluciones prácticas para la vida diaria.</p>
     </div>
   </div>
 </section>
@@ -761,9 +605,7 @@ footer{
 <section id="contacto" class="conversion">
   <div class="container">
     <h2>Atención personalizada VYONDA</h2>
-    <p>
-      Recibe información directa sobre disponibilidad, precios, lanzamientos y compra de productos.
-    </p>
+    <p>Recibe información directa sobre disponibilidad, precios, lanzamientos y compra de productos.</p>
 
     <a class="btn btn-whatsapp"
     href="https://wa.me/528445072442?text=Hola%20quiero%20información%20de%20productos%20VYONDA"
@@ -773,23 +615,54 @@ footer{
   </div>
 </section>
 
-<section class="premium-ad">
-  <div class="container">
-    <h2>Accede a productos VYONDA</h2>
-    <p>
-      Compra directa, disponibilidad limitada y nuevos lanzamientos próximamente.
-    </p>
-
-    <a class="btn btn-buy"
-    href="https://link.mercadopago.com.mx/vyondahealth"
-    target="_blank">
-      Comprar ahora
-    </a>
-  </div>
-</section>
-
 <footer>
   © 2026 VYONDA Health & Wellness · Ciencia · Salud · Bienestar
 </footer>
+
+<script>
+let carrito = [];
+
+function agregarCarrito(producto, precio){
+  carrito.push({producto, precio});
+  actualizarCarrito();
+}
+
+function eliminarProducto(index){
+  carrito.splice(index, 1);
+  actualizarCarrito();
+}
+
+function actualizarCarrito(){
+  const lista = document.getElementById("listaCarrito");
+  const totalTexto = document.getElementById("totalCarrito");
+  const confirmar = document.getElementById("confirmarPedido");
+
+  let total = carrito.reduce((sum, item) => sum + item.precio, 0);
+
+  if(carrito.length === 0){
+    lista.innerHTML = "<p>Tu carrito está vacío.</p>";
+  } else {
+    lista.innerHTML = carrito.map((item, index) => `
+      <div class="carrito-item">
+        <span>${item.producto} - $${item.precio} MXN</span>
+        <button onclick="eliminarProducto(${index})">Quitar</button>
+      </div>
+    `).join("");
+  }
+
+  totalTexto.innerText = "Total: $" + total + " MXN";
+
+  const detalle = carrito.map(item => `${item.producto} $${item.precio}`).join(", ");
+
+  confirmar.href =
+    "https://wa.me/528445072442?text=" +
+    encodeURIComponent(
+      "Hola VYONDA. Quiero confirmar mi pedido:\n\n" +
+      (detalle || "Carrito vacío") +
+      "\n\nTotal: $" + total + " MXN\n\nYa realicé mi pago / deseo instrucciones."
+    );
+}
+</script>
+
 </body>
 </html>
