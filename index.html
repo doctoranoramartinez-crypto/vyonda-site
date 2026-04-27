@@ -7,7 +7,68 @@
 <title>VYONDA Health & Wellness</title>
 
 <style>
-:root{
+/* NAVBAR */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  backdrop-filter:blur(12px);
+  background:rgba(2,6,23,0.6);
+  border-bottom:1px solid rgba(212,181,90,0.2);
+  z-index:999;
+}
+
+/* CONTENEDOR */
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+}
+
+/* LOGO */
+.logo-nav{
+  font-weight:bold;
+  font-size:20px;
+  letter-spacing:2px;
+  color:var(--dorado);
+}
+
+/* LINKS */
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
+
+/* LINKS ESTILO */
+.nav-links a{
+  text-decoration:none;
+  color:white;
+  position:relative;
+  transition:0.3s;
+}
+
+/* EFECTO DORADO */
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:2px;
+  background:linear-gradient(to right,#d4b55a,#ffd700);
+  transition:0.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+.nav-links a:hover{
+  color:#ffd700;
+}
+  :root{
   --azul:#061b3a;
   --azul2:#020814;
   --dorado:#d4b55a;
@@ -16,6 +77,22 @@
   --whatsapp:#25d366;
 }
 
+  body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at 50% 30%, rgba(0, 180, 255, 0.25), transparent 40%),
+              radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.15), transparent 40%),
+              linear-gradient(135deg, #020617, #0a1f44, #020617);
+  color:var(--blanco);
+}
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0,255,255,0.05), transparent 60%);
+  pointer-events: none;
+}  
 *{
   box-sizing:border-box;
 }
@@ -43,22 +120,7 @@ document.addEventListener("mousemove", function(e) {
   }, 1400);
 });
 </script>
-body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background: radial-gradient(circle at 50% 30%, rgba(0, 180, 255, 0.25), transparent 40%),
-              radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.15), transparent 40%),
-              linear-gradient(135deg, #020617, #0a1f44, #020617);
-  color:var(--blanco);
-}
-body::before {
-  content: "";
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(0,255,255,0.05), transparent 60%);
-  pointer-events: none;
-}  
+    
 /* BANNER SUPERIOR */
 .ads-top{
   background:linear-gradient(90deg,#0b2a55,#061b3a);
@@ -755,6 +817,21 @@ header {
   </div>
 </section>
 
+  <nav class="navbar">
+  <div class="nav-container">
+
+    <div class="logo-nav">VYONDA</div>
+
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#productos">Productos</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+  </div>
+</nav>
 <!-- HERO PRINCIPAL -->
 <header>
   <div class="hero">
