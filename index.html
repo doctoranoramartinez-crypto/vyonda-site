@@ -37,7 +37,6 @@ body{
     linear-gradient(135deg,#020617,#061b3a,#020814);
 }
 
-/* TAPIZ PREMIUM LIGERO */
 body::before{
   content:"";
   position:fixed;
@@ -51,7 +50,6 @@ body::before{
   opacity:.22;
 }
 
-/* NAVBAR */
 .navbar{
   position:fixed;
   top:0;
@@ -117,7 +115,6 @@ body::before{
   width:100%;
 }
 
-/* BANNER SUPERIOR DINÁMICO */
 .ads-top{
   background:linear-gradient(90deg,#0b2a55,#061b3a);
   padding:10px 0;
@@ -145,7 +142,6 @@ body::before{
   to{transform:translateX(-100%)}
 }
 
-/* HERO */
 header{
   min-height:calc(100vh - var(--nav-height));
   display:flex;
@@ -234,6 +230,18 @@ p{
   box-shadow:0 0 28px rgba(37,211,102,.45);
 }
 
+.btn-buy{
+  background:linear-gradient(135deg,#d4b55a,#ffd700);
+  color:#061b3a;
+  font-weight:bold;
+  box-shadow:0 0 20px rgba(212,181,90,.6);
+}
+
+.btn-buy:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 35px rgba(212,181,90,.9);
+}
+
 .btn-outline{
   border:1px solid var(--dorado);
   color:var(--dorado);
@@ -243,7 +251,6 @@ p{
   transform:translateY(-3px);
 }
 
-/* SECCIONES */
 section{
   padding:70px 20px;
   scroll-margin-top:120px;
@@ -266,7 +273,6 @@ section{
   margin:0 auto 40px;
 }
 
-/* ANUNCIOS */
 .ads-section{
   margin-top:40px;
   padding-top:35px;
@@ -312,7 +318,6 @@ section{
   box-shadow:0 0 28px rgba(212,181,90,.18);
 }
 
-/* PRODUCTOS */
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -361,7 +366,6 @@ section{
   text-transform:uppercase;
 }
 
-/* BENEFICIOS */
 .benefits-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
@@ -376,7 +380,6 @@ section{
   text-align:center;
 }
 
-/* NOSOTROS */
 .about-box{
   background:rgba(2,10,24,.42);
   border:1px solid rgba(212,181,90,.22);
@@ -385,7 +388,6 @@ section{
   text-align:center;
 }
 
-/* BLOQUE DE CONVERSIÓN */
 .conversion{
   text-align:center;
   padding:80px 20px;
@@ -396,7 +398,6 @@ section{
   font-size:2.2rem;
 }
 
-/* BLOQUE PREMIUM */
 .premium-ad{
   text-align:center;
   padding:80px 20px;
@@ -406,6 +407,19 @@ section{
 .premium-ad h2{
   font-size:2.2rem;
   margin-bottom:10px;
+}
+
+.checkout-box{
+  max-width:620px;
+  margin:30px auto 0;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  background:rgba(255,255,255,.06);
+  padding:30px;
+  border-radius:24px;
+  border:1px solid rgba(212,181,90,.25);
+  box-shadow:0 0 35px rgba(0,0,0,.4);
 }
 
 footer{
@@ -426,7 +440,6 @@ footer{
   }
 }
 
-/* OPTIMIZACIÓN MÓVIL */
 @media(max-width:768px){
   :root{
     --nav-height:75px;
@@ -506,6 +519,10 @@ footer{
   .section-title{
     font-size:1.8rem;
   }
+
+  .checkout-box{
+    padding:24px 18px;
+  }
 }
 </style>
 </head>
@@ -526,16 +543,14 @@ footer{
   </div>
 </nav>
 
-<!-- BANNER SUPERIOR DINÁMICO -->
 <section class="ads-top">
   <div class="ads-container">
     <div class="ad-item">🔥 Lanzamiento: OtoBalance disponible ahora</div>
-    <div class="ad-item">💎 Próximamente: OralBiotic Morning & Night</div>
+    <div class="ad-item">💳 Compra segura con Mercado Pago</div>
     <div class="ad-item">✨ VYONDA Health & Wellness · Ciencia, salud y bienestar</div>
   </div>
 </section>
 
-<!-- HERO PRINCIPAL -->
 <header id="inicio">
   <div class="hero">
     <img src="./logo-vyonda.png" class="logo-img" alt="Logo VYONDA">
@@ -551,10 +566,10 @@ footer{
     </p>
 
     <div class="btns">
-      <a class="btn btn-whatsapp"
-      href="https://wa.me/528445072442?text=Hola%20quiero%20información%20sobre%20productos%20VYONDA"
+      <a class="btn btn-buy"
+      href="https://link.mercadopago.com.mx/vyondahealth"
       target="_blank">
-        Comprar por WhatsApp
+        Comprar ahora
       </a>
 
       <a class="btn btn-outline" href="#productos">
@@ -564,7 +579,6 @@ footer{
   </div>
 </header>
 
-<!-- ANUNCIOS -->
 <section class="ads-section">
   <div class="container">
     <h2 class="section-title">Actualizaciones VYONDA</h2>
@@ -579,8 +593,8 @@ footer{
       </div>
 
       <div class="ad-card">
-        <h3>💎 Nueva línea</h3>
-        <p>OralBiotic en fase final de lanzamiento.</p>
+        <h3>💎 Compra directa</h3>
+        <p>Paga de forma segura mediante Mercado Pago.</p>
       </div>
 
       <div class="ad-card">
@@ -591,7 +605,6 @@ footer{
   </div>
 </section>
 
-<!-- PRODUCTOS -->
 <section id="productos">
   <div class="container">
     <h2 class="section-title">Productos VYONDA</h2>
@@ -613,10 +626,16 @@ footer{
           Producto para muestra y venta conforme disponibilidad.
         </p>
 
-        <a class="btn btn-whatsapp"
-        href="https://wa.me/528445072442?text=Hola%20quiero%20comprar%20OtoBalance"
+        <a class="btn btn-buy"
+        href="https://link.mercadopago.com.mx/vyondahealth"
         target="_blank">
-          Comprar OtoBalance
+          Comprar ahora
+        </a>
+
+        <a class="btn btn-outline"
+        href="https://wa.me/528445072442?text=Hola%20ya%20pagué%20OtoBalance%20y%20quiero%20confirmar%20mi%20pedido"
+        target="_blank">
+          Confirmar pedido
         </a>
       </div>
 
@@ -632,10 +651,16 @@ footer{
           Próximamente presentación Morning + Night.
         </p>
 
-        <a class="btn btn-whatsapp"
-        href="https://wa.me/528445072442?text=Hola%20quiero%20información%20sobre%20OralBiotic"
+        <a class="btn btn-buy"
+        href="https://link.mercadopago.com.mx/vyondahealth"
         target="_blank">
-          Comprar OralBiotic
+          Comprar ahora
+        </a>
+
+        <a class="btn btn-outline"
+        href="https://wa.me/528445072442?text=Hola%20ya%20pagué%20OralBiotic%20y%20quiero%20confirmar%20mi%20pedido"
+        target="_blank">
+          Confirmar pedido
         </a>
       </div>
 
@@ -651,10 +676,16 @@ footer{
           Próximamente información comercial y disponibilidad.
         </p>
 
-        <a class="btn btn-whatsapp"
-        href="https://wa.me/528445072442?text=Hola%20quiero%20información%20sobre%20Luna%20Flow"
+        <a class="btn btn-buy"
+        href="https://link.mercadopago.com.mx/vyondahealth"
         target="_blank">
-          Consultar Luna Flow
+          Comprar ahora
+        </a>
+
+        <a class="btn btn-outline"
+        href="https://wa.me/528445072442?text=Hola%20ya%20pagué%20Luna%20Flow%20y%20quiero%20confirmar%20mi%20pedido"
+        target="_blank">
+          Confirmar pedido
         </a>
       </div>
 
@@ -662,7 +693,6 @@ footer{
   </div>
 </section>
 
-<!-- BENEFICIOS -->
 <section id="beneficios">
   <div class="container">
     <h2 class="section-title">Beneficios VYONDA</h2>
@@ -683,13 +713,12 @@ footer{
 
       <div class="benefit-card">
         <h3>📦 Venta práctica</h3>
-        <p>Consulta disponibilidad, precios y compra directamente por WhatsApp.</p>
+        <p>Compra con Mercado Pago y confirma tu pedido por WhatsApp.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- NOSOTROS -->
 <section id="nosotros">
   <div class="container">
     <div class="about-box">
@@ -702,7 +731,33 @@ footer{
   </div>
 </section>
 
-<!-- CONTACTO / BLOQUE DE VENTA -->
+<section id="pedido" class="conversion">
+  <div class="container">
+    <h2>Confirma tu pedido</h2>
+    <p>
+      Después de realizar tu pago, envíanos tu comprobante y datos para envío.
+    </p>
+
+    <div class="checkout-box">
+      <p><strong>1.</strong> Realiza tu pago en Mercado Pago.</p>
+      <p><strong>2.</strong> Guarda tu comprobante.</p>
+      <p><strong>3.</strong> Envía por WhatsApp: nombre, producto, cantidad, dirección y comprobante.</p>
+
+      <a class="btn btn-buy"
+      href="https://link.mercadopago.com.mx/vyondahealth"
+      target="_blank">
+        Pagar ahora
+      </a>
+
+      <a class="btn btn-whatsapp"
+      href="https://wa.me/528445072442?text=Hola%20VYONDA,%20ya%20realicé%20mi%20pago.%20Quiero%20confirmar%20mi%20pedido.%0A%0ANombre:%0AProducto:%0ACantidad:%0ADirección:%0AComprobante:"
+      target="_blank">
+        Enviar comprobante
+      </a>
+    </div>
+  </div>
+</section>
+
 <section id="contacto" class="conversion">
   <div class="container">
     <h2>Atención personalizada VYONDA</h2>
@@ -718,7 +773,6 @@ footer{
   </div>
 </section>
 
-<!-- BLOQUE PREMIUM -->
 <section class="premium-ad">
   <div class="container">
     <h2>Accede a productos VYONDA</h2>
@@ -726,8 +780,8 @@ footer{
       Compra directa, disponibilidad limitada y nuevos lanzamientos próximamente.
     </p>
 
-    <a class="btn btn-whatsapp"
-    href="https://wa.me/528445072442?text=Hola%20quiero%20comprar%20productos%20VYONDA"
+    <a class="btn btn-buy"
+    href="https://link.mercadopago.com.mx/vyondahealth"
     target="_blank">
       Comprar ahora
     </a>
