@@ -780,9 +780,9 @@ footer{
       Compra directa, disponibilidad limitada y nuevos lanzamientos próximamente.
     </p>
 
-    <a class="btn btn-buy"
-    href="https://link.mercadopago.com.mx/vyondahealth"
-    target="_blank">
+    <button class="btn btn-buy" onclick="pagarConMercadoPago()">
+  Pagar con Mercado Pago
+</button>
       Comprar ahora
     </a>
   </div>
@@ -791,6 +791,106 @@ footer{
 <footer>
   © 2026 VYONDA Health & Wellness · Ciencia · Salud · Bienestar
 </footer>
+<script>
+let carrito = [];
 
+function agregarCarrito(producto, precio){
+  const existente = carrito.find(item => item.producto === producto);
+
+  if (existente) {
+    existente.cantidad += 1;
+  } else {
+    carrito.push({
+      producto,
+      precio,
+      cantidad: 1
+    });
+  }
+
+  actualizarCarrito();
+}
+
+function eliminarProducto(index){
+  carrito.splice(index, 1);
+  actualizarCarrito();
+}
+
+function aumentarCantidad(index){
+  carrito[index].cantidad += 1;
+  actualizarCarrito();
+}
+
+function disminuirCantidad(index){
+  if (carrito[index].cantidad > 1) {
+    carrito[index].cantidad -= 1;
+  } else {
+    carrito.splice(index, 1);
+  }
+  actualizarCarrito();
+}
+
+function actualizarCarrito(){
+  const lista = document.getElementById("listaCarrito");
+  const totalTexto = document.getElementById("totalCarrito");
+
+  let total = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+
+  if(!lista || !totalTexto) return;
+
+  if(carrito.length === 0){
+    lista.innerHTML = "<p>Tu carrito está vacío.</p>";
+  } else {
+    lista.innerHTML = carrito.map((item, index) => `
+      <div class="carrito-item">
+        <span>${item.producto} x ${item.cantidad} - $${item.precio * item.cantidad} MXN</span>
+        <div>
+          <button onclick="disminuirCantidad(${index})">-</button>
+          <button onclick="aumentarCantidad(${index})">+</button>
+          <button onclick="eliminarProducto(${index})">Quitar</button>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  totalTexto.innerText = "Total: $" + total + " MXN";
+}
+
+async function pagarConMercadoPago(){
+
+  if(carrito.length === 0){
+    alert("Tu carrito está vacío");
+    return;
+  }
+
+  const items = carrito.map(item => ({
+    title: item.producto,
+    quantity: item.cantidad,
+    unit_price: item.precio
+  }));
+
+  try {
+    const response = await fetch("/api/create-preference", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ items })
+    });
+
+    const data = await response.json();
+
+    if(data.init_point){
+      window.location.href = data.init_point;
+    } else {
+      console.error(data);
+      alert("Error al generar pago");
+    }
+
+  } catch (error){
+    console.error(error);
+    alert("Error de conexión");
+  }
+}
+</script>
 </body>
 </html>
