@@ -16,13 +16,21 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Carrito vacío" });
     }
 
-    const preference = {
-      items: items.map((item) => ({
-        title: item.title,
-        quantity: Number(item.quantity),
-        unit_price: Number(item.unit_price),
+    const cleanItems = items
+      .map((item) => ({
+        title: String(item.title || "Producto VYONDA"),
+        quantity: Number(item.quantity || 1),
+        unit_price: Number(item.unit_price || 0),
         currency_id: "MXN"
-      })),
+      }))
+      .filter((item) => item.quantity > 0 && item.unit_price > 0);
+
+    if (cleanItems.length === 0) {
+      return res.status(400).json({ error: "Productos inválidos o precio en cero" });
+    }
+
+    const preference = {
+      items: cleanItems,
 
       back_urls: {
         success: "https://vyondahealth.com/pago-exitoso.html",
