@@ -560,9 +560,9 @@ footer{
 
       <div id="totalCarrito" class="total-carrito">Total: $0 MXN</div>
 
-      <a class="btn btn-buy" href="https://link.mercadopago.com.mx/vyondahealth" target="_blank">
+      <button class="btn btn-buy" on click="pagarConMercadoPago()"> 
         Pagar con Mercado Pago
-      </a>
+      </button>
 
       <a class="btn btn-whatsapp" id="confirmarPedido" href="https://wa.me/528445072442" target="_blank">
         Confirmar pedido
@@ -663,6 +663,40 @@ function actualizarCarrito(){
     );
 }
 </script>
+async function pagarConMercadoPago() {
 
+  if (!carrito || carrito.length === 0) {
+    alert("Tu carrito está vacío");
+    return;
+  }
+
+  try {
+    const response = await fetch('/api/create-preference', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        items: carrito.map(item => ({
+          title: item.nombre,
+          quantity: item.cantidad,
+          unit_price: item.precio
+        }))
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.init_point) {
+      window.location.href = data.init_point;
+    } else {
+      alert("Error al generar el pago");
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Error de conexión con Mercado Pago");
+  }
+}
 </body>
 </html>
