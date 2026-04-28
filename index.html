@@ -899,7 +899,7 @@ async function pagarConMercadoPago(){
   }));
 
   try {
-    const response = await fetch("/api/create-preference", {
+    const response = await fetch("https://vyonda-site.vercel.app/api/create-preference", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
